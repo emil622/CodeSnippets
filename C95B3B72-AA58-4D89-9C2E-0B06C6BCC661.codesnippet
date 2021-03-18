@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csextractJsonArray</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/// Extracts an array of the given type. The type is infered from the return type which sould be an array of Mappable objects
+func extractArrayFromJson&lt;T&gt;(json: [Any]) throws -&gt; [T] where T: Mappable {
+    // Try to extract the json array
+    guard let dataJson = json as? [[String: Any]] else {
+        return []
+    }
+    
+    // If there is an array, try to create objects of the given type and add the to the typed array
+    var dataArray = [T]()
+    for itemJson in dataJson {
+        let map = Map(mappingType: .fromJSON, JSON: itemJson)
+        
+        guard let item = T(map: map) else {
+            // Could not create object of the given type with the current data, move on to the next one
+            continue
+        }
+        dataArray.append(item)
+    }
+    
+    return dataArray
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C95B3B72-AA58-4D89-9C2E-0B06C6BCC661</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Parses and json array and creates objectes from it</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Generic Json Array Parser</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

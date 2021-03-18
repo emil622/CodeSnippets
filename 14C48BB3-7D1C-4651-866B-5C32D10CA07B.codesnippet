@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csUIViewUtilities</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>extension UIView {
+
+    static var className: String {
+        return String(describing: type(of: self))
+    }
+    
+    static var nib: UINib {
+        return UINib(nibName: className, bundle: nil)
+    }
+    
+    class func fromNib&lt;T: UIView&gt;() -&gt; T {
+        return Bundle.main.loadNibNamed(className, owner: nil, options: nil)![0] as! T
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>14C48BB3-7D1C-4651-866B-5C32D10CA07B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Utility methods for UIView class</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIViewUtilities</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

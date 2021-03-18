@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csReusableCellProtocol</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>protocol Reusable: class {
+    static var reuseIdentifier: String { get }
+    static var nib: UINib? { get }
+}
+
+extension Reusable where Self: UIView {
+    static var nib: UINib? {
+        return UINib(nibName: String(describing: self), bundle: nil)
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9DC4F385-7611-4589-B5DF-D23397835F4A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Creates a protocol which provides reuse identifier and nib object</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Reusable cell protocol</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

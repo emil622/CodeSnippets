@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csslideableTimeProtocol</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/// Used for time labels disclosed on the sides of the screen
+enum TimeSliderDirection {
+    case close
+    case leftToRight
+    case rightToLeft
+}
+
+protocol SlideableCell {
+    
+    var message: Message? { get set }
+    var timeLabel: UILabel! { get set }
+    var leftTimeConstraint: NSLayoutConstraint! { get set }
+    
+    func updateTimePosition(offset: CGFloat, sliderDirection: TimeSliderDirection)
+    func resetTimePosition()
+}
+
+
+extension SlideableCell where Self: UIView {
+    
+    func updateTimePosition(offset: CGFloat, sliderDirection: TimeSliderDirection) {
+        guard message?.sender == .me &amp;&amp; sliderDirection == .openRight &amp;&amp; !(message?.type == .storyInvitation || message?.type == .moneySent) ||
+            message?.sender == .contact &amp;&amp; sliderDirection == .openLeft ||
+            (message?.type == .storyInvitation || message?.type == .moneySent) &amp;&amp; sliderDirection == .openLeft else {
+                return
+        }
+        
+        let newPosition = -34.0 + offset
+        guard newPosition &lt;= 13.0 else {
+            return
+        }
+        
+        if newPosition &lt;= -34.0 {
+            leftTimeConstraint.constant = -34.0
+            return
+        }
+        self.leftTimeConstraint.constant = newPosition
+    }
+    
+    func resetTimePosition() {
+        UIView.animate(withDuration: 0.4) {
+            self.leftTimeConstraint.constant = -34.0
+            self.layoutIfNeeded()
+        }
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A99C8A57-B3E2-4820-A915-3D3A935DB160</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>A protocol for showing cell time sliding left and right</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Protocol for slideable time cells</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

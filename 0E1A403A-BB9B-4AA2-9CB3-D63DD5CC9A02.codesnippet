@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>adappid</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>enum GoogleAdsAppID: String {
+    case production = "ca-app-pub-3342411467138820~4556211704"
+    case development = "ca-app-pub-3940256099942544/2934735716"
+    
+    /// Return the right ads app ID depending on the type of the project build
+    static var dynamicAppID: String = { () -&gt; String in
+        #if DEBUG
+            return GoogleAdsAppID.development.rawValue
+        #else
+            return GoogleAdsAppID.production.rawValue
+        #endif
+    }()
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0E1A403A-BB9B-4AA2-9CB3-D63DD5CC9A02</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Google ad app ID</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

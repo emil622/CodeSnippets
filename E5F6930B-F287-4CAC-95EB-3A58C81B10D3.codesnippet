@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csslideableFunctionLogic</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var timeSliderState: TimeSliderDirection = .close
+let panGesture = UIPanGestureRecognizer(target: self, action: #selector(slideToShowTimes(gesture:)))
+view.addGestureRecognizer(panGesture)
+@objc
+    func slideToShowTimes(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .changed:
+            let translation = gesture.translation(in: view)
+            switch timeSliderState {
+            case .close:
+                timeSliderState = translation.x &gt; 0 ? .openLeft : .openRight
+            case .openRight:
+                if translation.x &gt; 0.0 {
+                    timeSliderState = .openLeft
+                }
+            case .openLeft:
+                if translation.x &lt; 0.0 {
+                    timeSliderState = .openRight
+                }
+            }
+            collectionView.visibleCells.forEach { cell in
+                guard let cell = cell as? SlideableCell else { return }
+                if translation.x == 0.0 {
+                    self.timeSliderState = .close
+                    cell.resetTimePosition()
+                } else {
+                    cell.updateTimePosition(offset: abs(translation.x),
+                                            sliderDirection: timeSliderState)
+                }
+            }
+        case .ended:
+            timeSliderState = .close
+            collectionView.visibleCells.forEach { cell in
+                guard let cell = cell as? SlideableCell else { return }
+                cell.resetTimePosition()
+            }
+        default: break
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E5F6930B-F287-4CAC-95EB-3A58C81B10D3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>The function for sliding left or right the time labels</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Slideable Time Label Logic</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

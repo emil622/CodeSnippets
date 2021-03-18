@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csdynamic</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class Dynamic&lt;T&gt; {
+    typealias Listener = (T) -&gt; Void
+    var listener: Listener?
+    var value: T {
+        didSet {
+            listener?(value)
+        }
+    }
+    
+    
+    func bind(listener: Listener?) {
+        self.listener = listener
+    }
+    
+    func bindAndFire(listener: Listener?) {
+        self.listener = listener
+        listener?(value)
+    }
+    
+    init(_ v: T) {
+        value = v
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3CA74407-717C-4E69-80A8-49B461DCE9AB</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>A simple wrapper class for enabling reactive behaviour</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Dynamic Reactive Class</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

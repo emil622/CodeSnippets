@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>adunit</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>enum GoogleAdUnitID: String {
+    case mainBanner = "ca-app-pub-3342411467138820/8075395133"
+    
+    /// Return the right ads app ID depending on the type of the project build
+//    static var dynamicAppID: String = { () -&gt; String in
+//        #if DEBUG
+//            return GoogleAdsAppID.development.rawValue
+//        #else
+//            return GoogleAdsAppID.production.rawValue
+//        #endif
+//    }()
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>82FB7BF6-B7D4-424F-9316-56D46C19DCE3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Google ad unit Enum</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

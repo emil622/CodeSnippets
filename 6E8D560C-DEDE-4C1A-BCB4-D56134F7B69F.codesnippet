@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dateAppendDays</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>extension Date {
+            func appendDays(_ days: Int) -&gt; Date{
+                let date = NSCalendar.current.date(byAdding: .day, value: days, to: self)
+                return date!
+            }
+        }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6E8D560C-DEDE-4C1A-BCB4-D56134F7B69F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Extend Date so it can add days</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Date extension (append days)</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

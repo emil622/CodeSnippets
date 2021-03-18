@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csdashedBorder</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>func makeDashedBorder(color: UIColor = UIColor.cheerifyMagenta,
+                          pattern: [NSNumber] = [6, 3],
+                          cornerRadius: CGFloat = 0.0,
+                          lineWidth: CGFloat = 1.0)  {
+        
+        let borderLayer = CAShapeLayer()
+        borderLayer.strokeColor = color.cgColor
+        borderLayer.lineDashPattern = pattern
+        borderLayer.cornerRadius = cornerRadius
+        borderLayer.lineWidth = lineWidth
+        borderLayer.frame = bounds
+        borderLayer.fillColor = nil
+        borderLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        layer.addSublayer(borderLayer)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8DBB50B8-DC4F-41CF-835F-CFE7D2001C64</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Creates a dashed border on a view</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Dashed view border</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

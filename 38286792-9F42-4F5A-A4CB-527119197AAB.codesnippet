@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>csNibViewControllerInitialiser</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    @nonobjc
+    convenience override init() {
+        let thisType = type(of: self)
+        let className = String(describing: thisType)
+        
+        self.init(nibName: className, bundle: nil)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>38286792-9F42-4F5A-A4CB-527119197AAB</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>An custom initiliazer for easier instantiation from nib</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>View controller Nib initializer</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
